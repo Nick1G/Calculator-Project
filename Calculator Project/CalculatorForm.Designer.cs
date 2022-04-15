@@ -30,26 +30,43 @@
         {
             this.NumPanel = new System.Windows.Forms.Panel();
             this.NumOneButton = new System.Windows.Forms.Button();
-            this.NumTwoButton = new System.Windows.Forms.Button();
-            this.NumThreeButton = new System.Windows.Forms.Button();
             this.NumFourButton = new System.Windows.Forms.Button();
-            this.NumFiveButton = new System.Windows.Forms.Button();
-            this.NumSixButton = new System.Windows.Forms.Button();
-            this.NumSevenButton = new System.Windows.Forms.Button();
-            this.NumEightButton = new System.Windows.Forms.Button();
             this.NumNineButton = new System.Windows.Forms.Button();
             this.NumZeroButton = new System.Windows.Forms.Button();
+            this.NumSixButton = new System.Windows.Forms.Button();
+            this.NumSevenButton = new System.Windows.Forms.Button();
+            this.NumThreeButton = new System.Windows.Forms.Button();
+            this.NumTwoButton = new System.Windows.Forms.Button();
+            this.NumEightButton = new System.Windows.Forms.Button();
+            this.NumFiveButton = new System.Windows.Forms.Button();
             this.NumDisplay = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.AddButton = new System.Windows.Forms.Button();
+            this.MinusButton = new System.Windows.Forms.Button();
+            this.MultiplyButton = new System.Windows.Forms.Button();
+            this.DivideButton = new System.Windows.Forms.Button();
+            this.EqualButton = new System.Windows.Forms.Button();
+            this.NumPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // NumPanel
             // 
             this.NumPanel.AccessibleDescription = "Panel that serves to group number buttons";
             this.NumPanel.AccessibleName = "Number Panel";
-            this.NumPanel.Location = new System.Drawing.Point(18, 220);
+            this.NumPanel.Controls.Add(this.NumOneButton);
+            this.NumPanel.Controls.Add(this.NumFourButton);
+            this.NumPanel.Controls.Add(this.NumNineButton);
+            this.NumPanel.Controls.Add(this.NumZeroButton);
+            this.NumPanel.Controls.Add(this.NumSixButton);
+            this.NumPanel.Controls.Add(this.NumSevenButton);
+            this.NumPanel.Controls.Add(this.NumThreeButton);
+            this.NumPanel.Controls.Add(this.NumTwoButton);
+            this.NumPanel.Controls.Add(this.NumEightButton);
+            this.NumPanel.Controls.Add(this.NumFiveButton);
+            this.NumPanel.Location = new System.Drawing.Point(12, 222);
             this.NumPanel.Name = "NumPanel";
-            this.NumPanel.Size = new System.Drawing.Size(192, 258);
+            this.NumPanel.Size = new System.Drawing.Size(192, 255);
             this.NumPanel.TabIndex = 0;
             this.NumPanel.Click += new System.EventHandler(this.NumPanel_Click);
             // 
@@ -59,7 +76,7 @@
             this.NumOneButton.AccessibleName = "One Button";
             this.NumOneButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.NumOneButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.NumOneButton.Location = new System.Drawing.Point(18, 220);
+            this.NumOneButton.Location = new System.Drawing.Point(0, 0);
             this.NumOneButton.Name = "NumOneButton";
             this.NumOneButton.Size = new System.Drawing.Size(60, 60);
             this.NumOneButton.TabIndex = 1;
@@ -67,41 +84,13 @@
             this.NumOneButton.UseVisualStyleBackColor = false;
             this.NumOneButton.Click += new System.EventHandler(this.NumPanel_Click);
             // 
-            // NumTwoButton
-            // 
-            this.NumTwoButton.AccessibleDescription = "Button that enters a two into the number display";
-            this.NumTwoButton.AccessibleName = "Two Button";
-            this.NumTwoButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.NumTwoButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.NumTwoButton.Location = new System.Drawing.Point(84, 220);
-            this.NumTwoButton.Name = "NumTwoButton";
-            this.NumTwoButton.Size = new System.Drawing.Size(60, 60);
-            this.NumTwoButton.TabIndex = 2;
-            this.NumTwoButton.Text = "2";
-            this.NumTwoButton.UseVisualStyleBackColor = false;
-            this.NumTwoButton.Click += new System.EventHandler(this.NumPanel_Click);
-            // 
-            // NumThreeButton
-            // 
-            this.NumThreeButton.AccessibleDescription = "Button that enters a three into the number display";
-            this.NumThreeButton.AccessibleName = "Three Button";
-            this.NumThreeButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.NumThreeButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.NumThreeButton.Location = new System.Drawing.Point(150, 220);
-            this.NumThreeButton.Name = "NumThreeButton";
-            this.NumThreeButton.Size = new System.Drawing.Size(60, 60);
-            this.NumThreeButton.TabIndex = 3;
-            this.NumThreeButton.Text = "3";
-            this.NumThreeButton.UseVisualStyleBackColor = false;
-            this.NumThreeButton.Click += new System.EventHandler(this.NumPanel_Click);
-            // 
             // NumFourButton
             // 
             this.NumFourButton.AccessibleDescription = "Button that enters a four into the number display";
             this.NumFourButton.AccessibleName = "Four Button";
             this.NumFourButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.NumFourButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.NumFourButton.Location = new System.Drawing.Point(18, 286);
+            this.NumFourButton.Location = new System.Drawing.Point(0, 66);
             this.NumFourButton.Name = "NumFourButton";
             this.NumFourButton.Size = new System.Drawing.Size(60, 60);
             this.NumFourButton.TabIndex = 4;
@@ -109,69 +98,13 @@
             this.NumFourButton.UseVisualStyleBackColor = false;
             this.NumFourButton.Click += new System.EventHandler(this.NumPanel_Click);
             // 
-            // NumFiveButton
-            // 
-            this.NumFiveButton.AccessibleDescription = "Button that enters a five into the number display";
-            this.NumFiveButton.AccessibleName = "Five Button";
-            this.NumFiveButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.NumFiveButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.NumFiveButton.Location = new System.Drawing.Point(84, 286);
-            this.NumFiveButton.Name = "NumFiveButton";
-            this.NumFiveButton.Size = new System.Drawing.Size(60, 60);
-            this.NumFiveButton.TabIndex = 5;
-            this.NumFiveButton.Text = "5";
-            this.NumFiveButton.UseVisualStyleBackColor = false;
-            this.NumFiveButton.Click += new System.EventHandler(this.NumPanel_Click);
-            // 
-            // NumSixButton
-            // 
-            this.NumSixButton.AccessibleDescription = "Button that enters a six into the number display";
-            this.NumSixButton.AccessibleName = "Six Button";
-            this.NumSixButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.NumSixButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.NumSixButton.Location = new System.Drawing.Point(150, 286);
-            this.NumSixButton.Name = "NumSixButton";
-            this.NumSixButton.Size = new System.Drawing.Size(60, 60);
-            this.NumSixButton.TabIndex = 6;
-            this.NumSixButton.Text = "6";
-            this.NumSixButton.UseVisualStyleBackColor = false;
-            this.NumSixButton.Click += new System.EventHandler(this.NumPanel_Click);
-            // 
-            // NumSevenButton
-            // 
-            this.NumSevenButton.AccessibleDescription = "Button that enters a seven into the number display";
-            this.NumSevenButton.AccessibleName = "Seven Button";
-            this.NumSevenButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.NumSevenButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.NumSevenButton.Location = new System.Drawing.Point(18, 352);
-            this.NumSevenButton.Name = "NumSevenButton";
-            this.NumSevenButton.Size = new System.Drawing.Size(60, 60);
-            this.NumSevenButton.TabIndex = 7;
-            this.NumSevenButton.Text = "7";
-            this.NumSevenButton.UseVisualStyleBackColor = false;
-            this.NumSevenButton.Click += new System.EventHandler(this.NumPanel_Click);
-            // 
-            // NumEightButton
-            // 
-            this.NumEightButton.AccessibleDescription = "Button that enters an eight into the number display";
-            this.NumEightButton.AccessibleName = "Eight Button";
-            this.NumEightButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.NumEightButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.NumEightButton.Location = new System.Drawing.Point(84, 352);
-            this.NumEightButton.Name = "NumEightButton";
-            this.NumEightButton.Size = new System.Drawing.Size(60, 60);
-            this.NumEightButton.TabIndex = 8;
-            this.NumEightButton.Text = "8";
-            this.NumEightButton.UseVisualStyleBackColor = false;
-            this.NumEightButton.Click += new System.EventHandler(this.NumPanel_Click);
-            // 
             // NumNineButton
             // 
             this.NumNineButton.AccessibleDescription = "Button that enters a nine into the number display";
             this.NumNineButton.AccessibleName = "Nine Button";
             this.NumNineButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.NumNineButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.NumNineButton.Location = new System.Drawing.Point(150, 352);
+            this.NumNineButton.Location = new System.Drawing.Point(132, 132);
             this.NumNineButton.Name = "NumNineButton";
             this.NumNineButton.Size = new System.Drawing.Size(60, 60);
             this.NumNineButton.TabIndex = 9;
@@ -185,13 +118,97 @@
             this.NumZeroButton.AccessibleName = "Zero Button";
             this.NumZeroButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.NumZeroButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.NumZeroButton.Location = new System.Drawing.Point(84, 418);
+            this.NumZeroButton.Location = new System.Drawing.Point(66, 195);
             this.NumZeroButton.Name = "NumZeroButton";
             this.NumZeroButton.Size = new System.Drawing.Size(60, 60);
             this.NumZeroButton.TabIndex = 10;
             this.NumZeroButton.Text = "0";
             this.NumZeroButton.UseVisualStyleBackColor = false;
             this.NumZeroButton.Click += new System.EventHandler(this.NumPanel_Click);
+            // 
+            // NumSixButton
+            // 
+            this.NumSixButton.AccessibleDescription = "Button that enters a six into the number display";
+            this.NumSixButton.AccessibleName = "Six Button";
+            this.NumSixButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.NumSixButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.NumSixButton.Location = new System.Drawing.Point(132, 66);
+            this.NumSixButton.Name = "NumSixButton";
+            this.NumSixButton.Size = new System.Drawing.Size(60, 60);
+            this.NumSixButton.TabIndex = 6;
+            this.NumSixButton.Text = "6";
+            this.NumSixButton.UseVisualStyleBackColor = false;
+            this.NumSixButton.Click += new System.EventHandler(this.NumPanel_Click);
+            // 
+            // NumSevenButton
+            // 
+            this.NumSevenButton.AccessibleDescription = "Button that enters a seven into the number display";
+            this.NumSevenButton.AccessibleName = "Seven Button";
+            this.NumSevenButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.NumSevenButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.NumSevenButton.Location = new System.Drawing.Point(0, 132);
+            this.NumSevenButton.Name = "NumSevenButton";
+            this.NumSevenButton.Size = new System.Drawing.Size(60, 60);
+            this.NumSevenButton.TabIndex = 7;
+            this.NumSevenButton.Text = "7";
+            this.NumSevenButton.UseVisualStyleBackColor = false;
+            this.NumSevenButton.Click += new System.EventHandler(this.NumPanel_Click);
+            // 
+            // NumThreeButton
+            // 
+            this.NumThreeButton.AccessibleDescription = "Button that enters a three into the number display";
+            this.NumThreeButton.AccessibleName = "Three Button";
+            this.NumThreeButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.NumThreeButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.NumThreeButton.Location = new System.Drawing.Point(132, 0);
+            this.NumThreeButton.Name = "NumThreeButton";
+            this.NumThreeButton.Size = new System.Drawing.Size(60, 60);
+            this.NumThreeButton.TabIndex = 3;
+            this.NumThreeButton.Text = "3";
+            this.NumThreeButton.UseVisualStyleBackColor = false;
+            this.NumThreeButton.Click += new System.EventHandler(this.NumPanel_Click);
+            // 
+            // NumTwoButton
+            // 
+            this.NumTwoButton.AccessibleDescription = "Button that enters a two into the number display";
+            this.NumTwoButton.AccessibleName = "Two Button";
+            this.NumTwoButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.NumTwoButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.NumTwoButton.Location = new System.Drawing.Point(66, 0);
+            this.NumTwoButton.Name = "NumTwoButton";
+            this.NumTwoButton.Size = new System.Drawing.Size(60, 60);
+            this.NumTwoButton.TabIndex = 2;
+            this.NumTwoButton.Text = "2";
+            this.NumTwoButton.UseVisualStyleBackColor = false;
+            this.NumTwoButton.Click += new System.EventHandler(this.NumPanel_Click);
+            // 
+            // NumEightButton
+            // 
+            this.NumEightButton.AccessibleDescription = "Button that enters an eight into the number display";
+            this.NumEightButton.AccessibleName = "Eight Button";
+            this.NumEightButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.NumEightButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.NumEightButton.Location = new System.Drawing.Point(66, 132);
+            this.NumEightButton.Name = "NumEightButton";
+            this.NumEightButton.Size = new System.Drawing.Size(60, 60);
+            this.NumEightButton.TabIndex = 8;
+            this.NumEightButton.Text = "8";
+            this.NumEightButton.UseVisualStyleBackColor = false;
+            this.NumEightButton.Click += new System.EventHandler(this.NumPanel_Click);
+            // 
+            // NumFiveButton
+            // 
+            this.NumFiveButton.AccessibleDescription = "Button that enters a five into the number display";
+            this.NumFiveButton.AccessibleName = "Five Button";
+            this.NumFiveButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.NumFiveButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.NumFiveButton.Location = new System.Drawing.Point(66, 66);
+            this.NumFiveButton.Name = "NumFiveButton";
+            this.NumFiveButton.Size = new System.Drawing.Size(60, 60);
+            this.NumFiveButton.TabIndex = 5;
+            this.NumFiveButton.Text = "5";
+            this.NumFiveButton.UseVisualStyleBackColor = false;
+            this.NumFiveButton.Click += new System.EventHandler(this.NumPanel_Click);
             // 
             // NumDisplay
             // 
@@ -211,10 +228,80 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(233, 220);
+            this.panel1.Controls.Add(this.EqualButton);
+            this.panel1.Controls.Add(this.DivideButton);
+            this.panel1.Controls.Add(this.MultiplyButton);
+            this.panel1.Controls.Add(this.MinusButton);
+            this.panel1.Controls.Add(this.AddButton);
+            this.panel1.Location = new System.Drawing.Point(261, 222);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(162, 258);
+            this.panel1.Size = new System.Drawing.Size(162, 255);
             this.panel1.TabIndex = 12;
+            // 
+            // AddButton
+            // 
+            this.AddButton.AccessibleDescription = "Button that adds the current number display to the next input";
+            this.AddButton.AccessibleName = "Addition Button";
+            this.AddButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.AddButton.Font = new System.Drawing.Font("Segoe UI Semibold", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.AddButton.Location = new System.Drawing.Point(0, 0);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(78, 78);
+            this.AddButton.TabIndex = 13;
+            this.AddButton.Text = "+";
+            this.AddButton.UseVisualStyleBackColor = false;
+            // 
+            // MinusButton
+            // 
+            this.MinusButton.AccessibleDescription = "Button that subtracts the next input number from the current number display";
+            this.MinusButton.AccessibleName = "Subtraction Button";
+            this.MinusButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.MinusButton.Font = new System.Drawing.Font("Segoe UI Semibold", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.MinusButton.Location = new System.Drawing.Point(84, 0);
+            this.MinusButton.Name = "MinusButton";
+            this.MinusButton.Size = new System.Drawing.Size(78, 78);
+            this.MinusButton.TabIndex = 14;
+            this.MinusButton.Text = "-";
+            this.MinusButton.UseVisualStyleBackColor = false;
+            // 
+            // MultiplyButton
+            // 
+            this.MultiplyButton.AccessibleDescription = "Button that multiplies the current number display by the next number input";
+            this.MultiplyButton.AccessibleName = "Multiplication Button";
+            this.MultiplyButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.MultiplyButton.Font = new System.Drawing.Font("Segoe UI Semibold", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.MultiplyButton.Location = new System.Drawing.Point(0, 84);
+            this.MultiplyButton.Name = "MultiplyButton";
+            this.MultiplyButton.Size = new System.Drawing.Size(78, 78);
+            this.MultiplyButton.TabIndex = 14;
+            this.MultiplyButton.Text = "*";
+            this.MultiplyButton.UseVisualStyleBackColor = false;
+            // 
+            // DivideButton
+            // 
+            this.DivideButton.AccessibleDescription = "Button that divides the current number display by the next number input";
+            this.DivideButton.AccessibleName = "Division Button";
+            this.DivideButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.DivideButton.Font = new System.Drawing.Font("Segoe UI Semibold", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.DivideButton.Location = new System.Drawing.Point(84, 84);
+            this.DivideButton.Name = "DivideButton";
+            this.DivideButton.Size = new System.Drawing.Size(78, 78);
+            this.DivideButton.TabIndex = 14;
+            this.DivideButton.Text = "\\u";
+            this.DivideButton.UseVisualStyleBackColor = false;
+            // 
+            // EqualButton
+            // 
+            this.EqualButton.AccessibleDescription = "Button that resolves the operation within the number display";
+            this.EqualButton.AccessibleName = "Equal Button";
+            this.EqualButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.EqualButton.Font = new System.Drawing.Font("Segoe UI Semibold", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.EqualButton.Location = new System.Drawing.Point(0, 168);
+            this.EqualButton.Name = "EqualButton";
+            this.EqualButton.Size = new System.Drawing.Size(162, 87);
+            this.EqualButton.TabIndex = 14;
+            this.EqualButton.Text = "=";
+            this.EqualButton.UseVisualStyleBackColor = false;
             // 
             // CalculatorForm
             // 
@@ -226,19 +313,13 @@
             this.ClientSize = new System.Drawing.Size(435, 549);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.NumDisplay);
-            this.Controls.Add(this.NumZeroButton);
-            this.Controls.Add(this.NumNineButton);
-            this.Controls.Add(this.NumEightButton);
-            this.Controls.Add(this.NumSevenButton);
-            this.Controls.Add(this.NumSixButton);
-            this.Controls.Add(this.NumFiveButton);
-            this.Controls.Add(this.NumFourButton);
-            this.Controls.Add(this.NumThreeButton);
-            this.Controls.Add(this.NumTwoButton);
-            this.Controls.Add(this.NumOneButton);
             this.Controls.Add(this.NumPanel);
             this.Name = "CalculatorForm";
+            this.RightToLeftLayout = true;
             this.Text = "Calculator";
+            this.Load += new System.EventHandler(this.CalculatorForm_Load);
+            this.NumPanel.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,5 +340,10 @@
         private Button NumZeroButton;
         private TextBox NumDisplay;
         private Panel panel1;
+        private Button EqualButton;
+        private Button DivideButton;
+        private Button MultiplyButton;
+        private Button MinusButton;
+        private Button AddButton;
     }
 }
