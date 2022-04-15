@@ -63,6 +63,7 @@
             this.NumOneButton.TabIndex = 1;
             this.NumOneButton.Text = "1";
             this.NumOneButton.UseVisualStyleBackColor = false;
+            this.NumOneButton.Click += new System.EventHandler(this.NumOneButton_Click);
             // 
             // NumTwoButton
             // 
@@ -76,6 +77,7 @@
             this.NumTwoButton.TabIndex = 2;
             this.NumTwoButton.Text = "2";
             this.NumTwoButton.UseVisualStyleBackColor = false;
+            this.NumTwoButton.Click += new System.EventHandler(this.NumTwoButton_Click);
             // 
             // NumThreeButton
             // 
@@ -89,6 +91,7 @@
             this.NumThreeButton.TabIndex = 3;
             this.NumThreeButton.Text = "3";
             this.NumThreeButton.UseVisualStyleBackColor = false;
+            this.NumThreeButton.Click += new System.EventHandler(this.NumThreeButton_Click);
             // 
             // NumFourButton
             // 
@@ -102,6 +105,7 @@
             this.NumFourButton.TabIndex = 4;
             this.NumFourButton.Text = "4";
             this.NumFourButton.UseVisualStyleBackColor = false;
+            this.NumFourButton.Click += new System.EventHandler(this.NumFourButton_Click);
             // 
             // NumFiveButton
             // 
@@ -115,6 +119,7 @@
             this.NumFiveButton.TabIndex = 5;
             this.NumFiveButton.Text = "5";
             this.NumFiveButton.UseVisualStyleBackColor = false;
+            this.NumFiveButton.Click += new System.EventHandler(this.NumFiveButton_Click);
             // 
             // NumSixButton
             // 
@@ -128,6 +133,7 @@
             this.NumSixButton.TabIndex = 6;
             this.NumSixButton.Text = "6";
             this.NumSixButton.UseVisualStyleBackColor = false;
+            this.NumSixButton.Click += new System.EventHandler(this.NumSixButton_Click);
             // 
             // NumSevenButton
             // 
@@ -141,6 +147,7 @@
             this.NumSevenButton.TabIndex = 7;
             this.NumSevenButton.Text = "7";
             this.NumSevenButton.UseVisualStyleBackColor = false;
+            this.NumSevenButton.Click += new System.EventHandler(this.NumSevenButton_Click);
             // 
             // NumEightButton
             // 
@@ -154,6 +161,7 @@
             this.NumEightButton.TabIndex = 8;
             this.NumEightButton.Text = "8";
             this.NumEightButton.UseVisualStyleBackColor = false;
+            this.NumEightButton.Click += new System.EventHandler(this.NumEightButton_Click);
             // 
             // NumNineButton
             // 
@@ -167,6 +175,7 @@
             this.NumNineButton.TabIndex = 9;
             this.NumNineButton.Text = "9";
             this.NumNineButton.UseVisualStyleBackColor = false;
+            this.NumNineButton.Click += new System.EventHandler(this.NumNineButton_Click);
             // 
             // NumZeroButton
             // 
@@ -180,15 +189,20 @@
             this.NumZeroButton.TabIndex = 10;
             this.NumZeroButton.Text = "0";
             this.NumZeroButton.UseVisualStyleBackColor = false;
+            this.NumZeroButton.Click += new System.EventHandler(this.NumZeroButton_Click);
             // 
             // NumDisplay
             // 
             this.NumDisplay.AccessibleDescription = "Display for number inputs and equation results";
             this.NumDisplay.AccessibleName = "Number Display";
+            this.NumDisplay.BackColor = System.Drawing.Color.White;
+            this.NumDisplay.Enabled = false;
             this.NumDisplay.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.NumDisplay.ForeColor = System.Drawing.SystemColors.MenuText;
             this.NumDisplay.Location = new System.Drawing.Point(12, 12);
             this.NumDisplay.Multiline = true;
             this.NumDisplay.Name = "NumDisplay";
+            this.NumDisplay.ReadOnly = true;
             this.NumDisplay.Size = new System.Drawing.Size(474, 70);
             this.NumDisplay.TabIndex = 11;
             this.NumDisplay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
