@@ -40,14 +40,15 @@
             this.NumEightButton = new System.Windows.Forms.Button();
             this.NumFiveButton = new System.Windows.Forms.Button();
             this.NumDisplay = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.AddButton = new System.Windows.Forms.Button();
-            this.MinusButton = new System.Windows.Forms.Button();
-            this.MultiplyButton = new System.Windows.Forms.Button();
+            this.OperatorPanel = new System.Windows.Forms.Panel();
             this.DivideButton = new System.Windows.Forms.Button();
+            this.MultiplyButton = new System.Windows.Forms.Button();
+            this.MinusButton = new System.Windows.Forms.Button();
+            this.AddButton = new System.Windows.Forms.Button();
             this.EqualButton = new System.Windows.Forms.Button();
+            this.OperatorDisplay = new System.Windows.Forms.TextBox();
             this.NumPanel.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.OperatorPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // NumPanel
@@ -218,7 +219,7 @@
             this.NumDisplay.Enabled = false;
             this.NumDisplay.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.NumDisplay.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.NumDisplay.Location = new System.Drawing.Point(12, 12);
+            this.NumDisplay.Location = new System.Drawing.Point(12, 52);
             this.NumDisplay.Multiline = true;
             this.NumDisplay.Name = "NumDisplay";
             this.NumDisplay.ReadOnly = true;
@@ -226,43 +227,33 @@
             this.NumDisplay.TabIndex = 11;
             this.NumDisplay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // panel1
+            // OperatorPanel
             // 
-            this.panel1.Controls.Add(this.EqualButton);
-            this.panel1.Controls.Add(this.DivideButton);
-            this.panel1.Controls.Add(this.MultiplyButton);
-            this.panel1.Controls.Add(this.MinusButton);
-            this.panel1.Controls.Add(this.AddButton);
-            this.panel1.Location = new System.Drawing.Point(261, 222);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(162, 255);
-            this.panel1.TabIndex = 12;
+            this.OperatorPanel.AccessibleDescription = "Panel used to group operators together";
+            this.OperatorPanel.AccessibleName = "Operator Panel";
+            this.OperatorPanel.Controls.Add(this.DivideButton);
+            this.OperatorPanel.Controls.Add(this.MultiplyButton);
+            this.OperatorPanel.Controls.Add(this.MinusButton);
+            this.OperatorPanel.Controls.Add(this.AddButton);
+            this.OperatorPanel.Location = new System.Drawing.Point(261, 222);
+            this.OperatorPanel.Name = "OperatorPanel";
+            this.OperatorPanel.Size = new System.Drawing.Size(162, 162);
+            this.OperatorPanel.TabIndex = 12;
+            this.OperatorPanel.Click += new System.EventHandler(this.OperatorPanel_Click);
             // 
-            // AddButton
+            // DivideButton
             // 
-            this.AddButton.AccessibleDescription = "Button that adds the current number display to the next input";
-            this.AddButton.AccessibleName = "Addition Button";
-            this.AddButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.AddButton.Font = new System.Drawing.Font("Segoe UI Semibold", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.AddButton.Location = new System.Drawing.Point(0, 0);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(78, 78);
-            this.AddButton.TabIndex = 13;
-            this.AddButton.Text = "+";
-            this.AddButton.UseVisualStyleBackColor = false;
-            // 
-            // MinusButton
-            // 
-            this.MinusButton.AccessibleDescription = "Button that subtracts the next input number from the current number display";
-            this.MinusButton.AccessibleName = "Subtraction Button";
-            this.MinusButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.MinusButton.Font = new System.Drawing.Font("Segoe UI Semibold", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.MinusButton.Location = new System.Drawing.Point(84, 0);
-            this.MinusButton.Name = "MinusButton";
-            this.MinusButton.Size = new System.Drawing.Size(78, 78);
-            this.MinusButton.TabIndex = 14;
-            this.MinusButton.Text = "-";
-            this.MinusButton.UseVisualStyleBackColor = false;
+            this.DivideButton.AccessibleDescription = "Button that divides the current number display by the next number input";
+            this.DivideButton.AccessibleName = "Division Button";
+            this.DivideButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.DivideButton.Font = new System.Drawing.Font("Segoe UI Semibold", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.DivideButton.Location = new System.Drawing.Point(84, 84);
+            this.DivideButton.Name = "DivideButton";
+            this.DivideButton.Size = new System.Drawing.Size(78, 78);
+            this.DivideButton.TabIndex = 14;
+            this.DivideButton.Text = "/";
+            this.DivideButton.UseVisualStyleBackColor = false;
+            this.DivideButton.Click += new System.EventHandler(this.OperatorPanel_Click);
             // 
             // MultiplyButton
             // 
@@ -276,19 +267,35 @@
             this.MultiplyButton.TabIndex = 14;
             this.MultiplyButton.Text = "*";
             this.MultiplyButton.UseVisualStyleBackColor = false;
+            this.MultiplyButton.Click += new System.EventHandler(this.OperatorPanel_Click);
             // 
-            // DivideButton
+            // MinusButton
             // 
-            this.DivideButton.AccessibleDescription = "Button that divides the current number display by the next number input";
-            this.DivideButton.AccessibleName = "Division Button";
-            this.DivideButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.DivideButton.Font = new System.Drawing.Font("Segoe UI Semibold", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.DivideButton.Location = new System.Drawing.Point(84, 84);
-            this.DivideButton.Name = "DivideButton";
-            this.DivideButton.Size = new System.Drawing.Size(78, 78);
-            this.DivideButton.TabIndex = 14;
-            this.DivideButton.Text = "\\u";
-            this.DivideButton.UseVisualStyleBackColor = false;
+            this.MinusButton.AccessibleDescription = "Button that subtracts the next input number from the current number display";
+            this.MinusButton.AccessibleName = "Subtraction Button";
+            this.MinusButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.MinusButton.Font = new System.Drawing.Font("Segoe UI Semibold", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.MinusButton.Location = new System.Drawing.Point(84, 0);
+            this.MinusButton.Name = "MinusButton";
+            this.MinusButton.Size = new System.Drawing.Size(78, 78);
+            this.MinusButton.TabIndex = 14;
+            this.MinusButton.Text = "-";
+            this.MinusButton.UseVisualStyleBackColor = false;
+            this.MinusButton.Click += new System.EventHandler(this.OperatorPanel_Click);
+            // 
+            // AddButton
+            // 
+            this.AddButton.AccessibleDescription = "Button that adds the current number display to the next input";
+            this.AddButton.AccessibleName = "Addition Button";
+            this.AddButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.AddButton.Font = new System.Drawing.Font("Segoe UI Semibold", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.AddButton.Location = new System.Drawing.Point(0, 0);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(78, 78);
+            this.AddButton.TabIndex = 13;
+            this.AddButton.Text = "+";
+            this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.Click += new System.EventHandler(this.OperatorPanel_Click);
             // 
             // EqualButton
             // 
@@ -296,12 +303,28 @@
             this.EqualButton.AccessibleName = "Equal Button";
             this.EqualButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.EqualButton.Font = new System.Drawing.Font("Segoe UI Semibold", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.EqualButton.Location = new System.Drawing.Point(0, 168);
+            this.EqualButton.Location = new System.Drawing.Point(261, 390);
             this.EqualButton.Name = "EqualButton";
             this.EqualButton.Size = new System.Drawing.Size(162, 87);
             this.EqualButton.TabIndex = 14;
             this.EqualButton.Text = "=";
             this.EqualButton.UseVisualStyleBackColor = false;
+            this.EqualButton.Click += new System.EventHandler(this.EqualButton_Click);
+            // 
+            // OperatorDisplay
+            // 
+            this.OperatorDisplay.AccessibleDescription = "Display for the currently saved operator";
+            this.OperatorDisplay.AccessibleName = "Operator Display";
+            this.OperatorDisplay.BackColor = System.Drawing.Color.White;
+            this.OperatorDisplay.Enabled = false;
+            this.OperatorDisplay.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.OperatorDisplay.Location = new System.Drawing.Point(389, 12);
+            this.OperatorDisplay.Multiline = true;
+            this.OperatorDisplay.Name = "OperatorDisplay";
+            this.OperatorDisplay.ReadOnly = true;
+            this.OperatorDisplay.Size = new System.Drawing.Size(34, 34);
+            this.OperatorDisplay.TabIndex = 15;
+            this.OperatorDisplay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // CalculatorForm
             // 
@@ -310,16 +333,17 @@
             this.AccessibleName = "Calculator";
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 549);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(435, 499);
+            this.Controls.Add(this.OperatorDisplay);
+            this.Controls.Add(this.EqualButton);
             this.Controls.Add(this.NumDisplay);
             this.Controls.Add(this.NumPanel);
+            this.Controls.Add(this.OperatorPanel);
             this.Name = "CalculatorForm";
             this.RightToLeftLayout = true;
             this.Text = "Calculator";
-            this.Load += new System.EventHandler(this.CalculatorForm_Load);
             this.NumPanel.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.OperatorPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,11 +363,12 @@
         private Button NumNineButton;
         private Button NumZeroButton;
         private TextBox NumDisplay;
-        private Panel panel1;
+        private Panel OperatorPanel;
         private Button EqualButton;
         private Button DivideButton;
         private Button MultiplyButton;
         private Button MinusButton;
         private Button AddButton;
+        private TextBox OperatorDisplay;
     }
 }
