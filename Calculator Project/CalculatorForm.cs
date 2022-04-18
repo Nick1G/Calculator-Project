@@ -18,11 +18,19 @@ namespace Calculator_Project
         {
             if (sender is Button)
             {
+                Button btn = sender as Button;
 
                 if (NumDisplay.Text.Length <= 12)
                 {
-                    Button btn = sender as Button;
                     NumDisplay.Text += btn.Text;
+                }
+
+                if (PreviousNum != null)
+                {
+                    NumDisplay.Text = btn.Text.ToString();
+                    PreviousNum = null;
+                    SavedNum = null;
+                    SavedOperator = null;
                 }
             }
         }
@@ -37,7 +45,7 @@ namespace Calculator_Project
 
                 if (!String.IsNullOrWhiteSpace(displayNum) || SavedNum != null)
                 {
-                    if (SavedNum != null && !String.IsNullOrWhiteSpace(displayNum) && SavedOperator != null)
+                    if (SavedNum != null && !String.IsNullOrWhiteSpace(displayNum) && SavedOperator != null && !String.IsNullOrWhiteSpace(SavedNumDisplay.Text))
                     {
                         EqualButton_Click(sender, e);
                     }
@@ -68,6 +76,8 @@ namespace Calculator_Project
                 SavedNum = decimal.Parse(displayNum);
             }
 
+            PreviousNum = null;
+            SavedNumDisplay.Text = SavedNum.ToString();
             NumDisplay.Text = "";
         }
 
@@ -77,25 +87,51 @@ namespace Calculator_Project
             {
                 decimal? result = 0;
 
+                if (PreviousNum == null)
+                {
+                    PreviousNum = decimal.Parse(NumDisplay.Text.ToString());
+                }
+
                 switch (SavedOperator)
                 {
                     case Operator.Addition:
                         result = SavedNum + decimal.Parse(NumDisplay.Text.ToString());
+
+                        if (String.IsNullOrWhiteSpace(SavedNumDisplay.Text) && String.IsNullOrWhiteSpace(OperatorDisplay.Text))
+                        {
+                            result = SavedNum + PreviousNum;
+                        }
                         break;
                     case Operator.Subtraction:
                         result = SavedNum - decimal.Parse(NumDisplay.Text.ToString());
+
+                        if (String.IsNullOrWhiteSpace(SavedNumDisplay.Text) && String.IsNullOrWhiteSpace(OperatorDisplay.Text))
+                        {
+                            result = SavedNum - PreviousNum;
+                        }
                         break;
                     case Operator.Multiplication:
                         result = SavedNum * decimal.Parse(NumDisplay.Text.ToString());
+
+                        if (String.IsNullOrWhiteSpace(SavedNumDisplay.Text) && String.IsNullOrWhiteSpace(OperatorDisplay.Text))
+                        {
+                            result = SavedNum * PreviousNum;
+                        }
                         break;
                     case Operator.Division:
                         result = SavedNum / decimal.Parse(NumDisplay.Text.ToString());
+
+                        if (String.IsNullOrWhiteSpace(SavedNumDisplay.Text) && String.IsNullOrWhiteSpace(OperatorDisplay.Text))
+                        {
+                            result = SavedNum / PreviousNum;
+                        }
                         break;
                 }
 
                 if (result != null)
                 {
                     SavedNum = result;
+                    SavedNumDisplay.Text = "";
                     NumDisplay.Text = result.ToString();
                     OperatorDisplay.Text = "";
                 }
@@ -108,6 +144,7 @@ namespace Calculator_Project
             SavedOperator = null;
             OperatorDisplay.Text = "";
             NumDisplay.Text = "";
+            PreviousNum = null;
         }
 
         private void DecimalButton_Click(object sender, EventArgs e)
