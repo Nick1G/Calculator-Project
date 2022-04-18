@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.NumPanel = new System.Windows.Forms.Panel();
+            this.ClearButton = new System.Windows.Forms.Button();
             this.NumOneButton = new System.Windows.Forms.Button();
             this.NumFourButton = new System.Windows.Forms.Button();
             this.NumNineButton = new System.Windows.Forms.Button();
@@ -55,6 +56,7 @@
             // 
             this.NumPanel.AccessibleDescription = "Panel that serves to group number buttons";
             this.NumPanel.AccessibleName = "Number Panel";
+            this.NumPanel.Controls.Add(this.ClearButton);
             this.NumPanel.Controls.Add(this.NumOneButton);
             this.NumPanel.Controls.Add(this.NumFourButton);
             this.NumPanel.Controls.Add(this.NumNineButton);
@@ -67,9 +69,23 @@
             this.NumPanel.Controls.Add(this.NumFiveButton);
             this.NumPanel.Location = new System.Drawing.Point(12, 222);
             this.NumPanel.Name = "NumPanel";
-            this.NumPanel.Size = new System.Drawing.Size(192, 255);
+            this.NumPanel.Size = new System.Drawing.Size(192, 258);
             this.NumPanel.TabIndex = 0;
             this.NumPanel.Click += new System.EventHandler(this.NumPanel_Click);
+            // 
+            // ClearButton
+            // 
+            this.ClearButton.AccessibleDescription = "Button that clears all current data";
+            this.ClearButton.AccessibleName = "Clear Button";
+            this.ClearButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.ClearButton.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ClearButton.Location = new System.Drawing.Point(0, 198);
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.Size = new System.Drawing.Size(60, 60);
+            this.ClearButton.TabIndex = 16;
+            this.ClearButton.Text = "Clear";
+            this.ClearButton.UseVisualStyleBackColor = false;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // NumOneButton
             // 
@@ -119,7 +135,7 @@
             this.NumZeroButton.AccessibleName = "Zero Button";
             this.NumZeroButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.NumZeroButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.NumZeroButton.Location = new System.Drawing.Point(66, 195);
+            this.NumZeroButton.Location = new System.Drawing.Point(66, 198);
             this.NumZeroButton.Name = "NumZeroButton";
             this.NumZeroButton.Size = new System.Drawing.Size(60, 60);
             this.NumZeroButton.TabIndex = 10;
@@ -305,7 +321,7 @@
             this.EqualButton.Font = new System.Drawing.Font("Segoe UI Semibold", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.EqualButton.Location = new System.Drawing.Point(261, 390);
             this.EqualButton.Name = "EqualButton";
-            this.EqualButton.Size = new System.Drawing.Size(162, 87);
+            this.EqualButton.Size = new System.Drawing.Size(162, 90);
             this.EqualButton.TabIndex = 14;
             this.EqualButton.Text = "=";
             this.EqualButton.UseVisualStyleBackColor = false;
@@ -370,5 +386,6 @@
         private Button MinusButton;
         private Button AddButton;
         private TextBox OperatorDisplay;
+        private Button ClearButton;
     }
 }

@@ -6,7 +6,6 @@ namespace Calculator_Project
     {
         private decimal? SavedNum { get; set; }
         private Operator? SavedOperator { get; set; }
-        private bool EnteredOperator { get; set; } = false;
 
         public CalculatorForm()
         {
@@ -17,54 +16,56 @@ namespace Calculator_Project
         {
             if (sender is Button)
             {
-                if (EnteredOperator == true)
-                {
-                    NumDisplay.Text = "";
-                }
 
                 if (NumDisplay.Text.Length <= 12)
                 {
                     Button btn = sender as Button;
                     NumDisplay.Text += btn.Text;
                 }
-
-                EnteredOperator = false;
             }
         }
 
         private void OperatorPanel_Click(object sender, EventArgs e)
         {
             string displayNum = NumDisplay.Text.ToString();
-            SavedNum = decimal.Parse(displayNum);
+
             if (sender is Button)
             {
                 Button btn = sender as Button;
 
-                if (!String.IsNullOrWhiteSpace(displayNum))
+                if (!String.IsNullOrWhiteSpace(displayNum) || SavedNum != null)
                 {
+                    if (SavedNum != null && !String.IsNullOrWhiteSpace(displayNum) && SavedOperator != null)
+                    {
+                        EqualButton_Click(sender, e);
+                    }
+
+                    OperatorDisplay.Text = btn.Text.ToString();
+
                     switch (btn.Text.ToString())
                     {
                         case "+":
-                            OperatorDisplay.Text = btn.Text.ToString();
                             SavedOperator = Operator.Addition;
                             break;
                         case "-":
-                            OperatorDisplay.Text = btn.Text.ToString();
                             SavedOperator = Operator.Subtraction;
                             break;
                         case "*":
-                            OperatorDisplay.Text = btn.Text.ToString();
                             SavedOperator = Operator.Multiplication;
                             break;
                         case "/":
-                            OperatorDisplay.Text = btn.Text.ToString();
                             SavedOperator = Operator.Division;
                             break;
                     }
-
-                    EnteredOperator = true;
                 }
             }
+
+            if (!String.IsNullOrWhiteSpace(displayNum) && SavedNum == null)
+            {
+                SavedNum = decimal.Parse(displayNum);
+            }
+
+            NumDisplay.Text = "";
         }
 
         private void EqualButton_Click(object sender, EventArgs e)
@@ -95,10 +96,18 @@ namespace Calculator_Project
                     NumDisplay.Text = result.ToString();
                     SavedOperator = null;
                     OperatorDisplay.Text = "";
-                    EnteredOperator = false;
                 }
             }
         }
+
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            SavedNum = null;
+            SavedOperator = null;
+            OperatorDisplay.Text = "";
+            NumDisplay.Text = "";
+        }
+
     }
 
     public enum Operator
