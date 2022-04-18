@@ -48,6 +48,8 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.EqualButton = new System.Windows.Forms.Button();
             this.OperatorDisplay = new System.Windows.Forms.TextBox();
+            this.SavedNumDisplay = new System.Windows.Forms.TextBox();
+            this.DecimalButton = new System.Windows.Forms.Button();
             this.NumPanel.SuspendLayout();
             this.OperatorPanel.SuspendLayout();
             this.SuspendLayout();
@@ -56,6 +58,7 @@
             // 
             this.NumPanel.AccessibleDescription = "Panel that serves to group number buttons";
             this.NumPanel.AccessibleName = "Number Panel";
+            this.NumPanel.Controls.Add(this.DecimalButton);
             this.NumPanel.Controls.Add(this.ClearButton);
             this.NumPanel.Controls.Add(this.NumOneButton);
             this.NumPanel.Controls.Add(this.NumFourButton);
@@ -342,6 +345,35 @@
             this.OperatorDisplay.TabIndex = 15;
             this.OperatorDisplay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // SavedNumDisplay
+            // 
+            this.SavedNumDisplay.AccessibleDescription = "Displays the currently saved number";
+            this.SavedNumDisplay.AccessibleName = "Saved Number Display";
+            this.SavedNumDisplay.BackColor = System.Drawing.Color.White;
+            this.SavedNumDisplay.Enabled = false;
+            this.SavedNumDisplay.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SavedNumDisplay.Location = new System.Drawing.Point(251, 12);
+            this.SavedNumDisplay.Multiline = true;
+            this.SavedNumDisplay.Name = "SavedNumDisplay";
+            this.SavedNumDisplay.ReadOnly = true;
+            this.SavedNumDisplay.Size = new System.Drawing.Size(142, 34);
+            this.SavedNumDisplay.TabIndex = 16;
+            this.SavedNumDisplay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // DecimalButton
+            // 
+            this.DecimalButton.AccessibleDescription = "Button that enter a decimal point in the number display";
+            this.DecimalButton.AccessibleName = "Decimal Button";
+            this.DecimalButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.DecimalButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.DecimalButton.Location = new System.Drawing.Point(132, 198);
+            this.DecimalButton.Name = "DecimalButton";
+            this.DecimalButton.Size = new System.Drawing.Size(60, 60);
+            this.DecimalButton.TabIndex = 17;
+            this.DecimalButton.Text = ".";
+            this.DecimalButton.UseVisualStyleBackColor = false;
+            this.DecimalButton.Click += new System.EventHandler(this.DecimalButton_Click);
+            // 
             // CalculatorForm
             // 
             this.AccessibleDescription = "Form that functions as a simple calculator with operators, operands, and a number" +
@@ -350,6 +382,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(435, 499);
+            this.Controls.Add(this.SavedNumDisplay);
             this.Controls.Add(this.OperatorDisplay);
             this.Controls.Add(this.EqualButton);
             this.Controls.Add(this.NumDisplay);
@@ -387,5 +420,7 @@
         private Button AddButton;
         private TextBox OperatorDisplay;
         private Button ClearButton;
+        private TextBox SavedNumDisplay;
+        private Button DecimalButton;
     }
 }

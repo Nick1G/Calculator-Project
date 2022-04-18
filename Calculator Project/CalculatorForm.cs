@@ -6,6 +6,8 @@ namespace Calculator_Project
     {
         private decimal? SavedNum { get; set; }
         private Operator? SavedOperator { get; set; }
+        private NumType SetNumType { get; set; } = NumType.Decimal;
+        private decimal? PreviousNum { get; set; }
 
         public CalculatorForm()
         {
@@ -40,6 +42,7 @@ namespace Calculator_Project
                         EqualButton_Click(sender, e);
                     }
 
+                    SavedOperator = null;
                     OperatorDisplay.Text = btn.Text.ToString();
 
                     switch (btn.Text.ToString())
@@ -94,7 +97,6 @@ namespace Calculator_Project
                 {
                     SavedNum = result;
                     NumDisplay.Text = result.ToString();
-                    SavedOperator = null;
                     OperatorDisplay.Text = "";
                 }
             }
@@ -108,6 +110,25 @@ namespace Calculator_Project
             NumDisplay.Text = "";
         }
 
+        private void DecimalButton_Click(object sender, EventArgs e)
+        {
+            if (sender is Button)
+            {
+                Button btn = sender as Button;
+
+                if (NumDisplay.Text.Length <= 12)
+                {
+                    if (NumDisplay.Text.Length == 0)
+                    {
+                        NumDisplay.Text += "0.";
+                    } 
+                    else
+                    {
+                        NumDisplay.Text += btn.Text;
+                    }
+                }
+            }
+        }
     }
 
     public enum Operator
@@ -116,5 +137,12 @@ namespace Calculator_Project
         Subtraction,
         Multiplication,
         Division,
+    }
+
+    public enum NumType
+    {
+        Decimal,
+        Binary,
+        Locational,
     }
 }
