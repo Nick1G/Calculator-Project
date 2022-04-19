@@ -4,10 +4,11 @@ namespace Calculator_Project
 {
     public partial class CalculatorForm : Form
     {
-        private decimal? SavedNum { get; set; }
+        private double? SavedNum { get; set; }
         private Operator? SavedOperator { get; set; }
         private NumType SetNumType { get; set; } = NumType.Decimal;
-        private decimal? PreviousNum { get; set; }
+        private double? PreviousNum { get; set; }
+        private bool CaughtError { get; set; } = false;
 
         public CalculatorForm()
         {
@@ -25,12 +26,13 @@ namespace Calculator_Project
                     NumDisplay.Text += btn.Text;
                 }
 
-                if (PreviousNum != null)
+                if (PreviousNum != null || CaughtError == true)
                 {
                     NumDisplay.Text = btn.Text.ToString();
                     PreviousNum = null;
                     SavedNum = null;
                     SavedOperator = null;
+                    CaughtError = false;
                 }
             }
         }
@@ -39,7 +41,7 @@ namespace Calculator_Project
         {
             string displayNum = NumDisplay.Text.ToString();
 
-            if (sender is Button)
+            if (sender is Button && CaughtError == false)
             {
                 Button btn = sender as Button;
 
@@ -73,7 +75,7 @@ namespace Calculator_Project
 
             if (!String.IsNullOrWhiteSpace(displayNum) && SavedNum == null)
             {
-                SavedNum = decimal.Parse(displayNum);
+                SavedNum = double.Parse(displayNum);
             }
 
             PreviousNum = null;
@@ -85,17 +87,26 @@ namespace Calculator_Project
         {
             if (SavedNum != null && SavedOperator != null && !String.IsNullOrWhiteSpace(NumDisplay.Text.ToString()))
             {
-                decimal? result = 0;
+                double? result = 0;
 
                 if (PreviousNum == null)
                 {
-                    PreviousNum = decimal.Parse(NumDisplay.Text.ToString());
+                    PreviousNum = double.Parse(NumDisplay.Text.ToString());
                 }
 
                 switch (SavedOperator)
                 {
                     case Operator.Addition:
-                        result = SavedNum + decimal.Parse(NumDisplay.Text.ToString());
+                        try
+                        {
+                            result = SavedNum + double.Parse(NumDisplay.Text.ToString());
+                        }
+                        catch
+                        {
+                            NumDisplay.Text = "ERROR";
+                            CaughtError = true;
+                            break;
+                        }
 
                         if (String.IsNullOrWhiteSpace(SavedNumDisplay.Text) && String.IsNullOrWhiteSpace(OperatorDisplay.Text))
                         {
@@ -103,7 +114,16 @@ namespace Calculator_Project
                         }
                         break;
                     case Operator.Subtraction:
-                        result = SavedNum - decimal.Parse(NumDisplay.Text.ToString());
+                        try
+                        {
+                            result = SavedNum - double.Parse(NumDisplay.Text.ToString());
+                        }
+                        catch
+                        {
+                            NumDisplay.Text = "ERROR";
+                            CaughtError = true;
+                            break;
+                        }
 
                         if (String.IsNullOrWhiteSpace(SavedNumDisplay.Text) && String.IsNullOrWhiteSpace(OperatorDisplay.Text))
                         {
@@ -111,7 +131,16 @@ namespace Calculator_Project
                         }
                         break;
                     case Operator.Multiplication:
-                        result = SavedNum * decimal.Parse(NumDisplay.Text.ToString());
+                        try
+                        {
+                            result = SavedNum * double.Parse(NumDisplay.Text.ToString());
+                        }
+                        catch
+                        {
+                            NumDisplay.Text = "ERROR";
+                            CaughtError = true;
+                            break;
+                        }
 
                         if (String.IsNullOrWhiteSpace(SavedNumDisplay.Text) && String.IsNullOrWhiteSpace(OperatorDisplay.Text))
                         {
@@ -119,7 +148,16 @@ namespace Calculator_Project
                         }
                         break;
                     case Operator.Division:
-                        result = SavedNum / decimal.Parse(NumDisplay.Text.ToString());
+                        try
+                        {
+                            result = SavedNum / double.Parse(NumDisplay.Text.ToString());
+                        }
+                        catch
+                        {
+                            NumDisplay.Text = "ERROR";
+                            CaughtError = true;
+                            break;
+                        }
 
                         if (String.IsNullOrWhiteSpace(SavedNumDisplay.Text) && String.IsNullOrWhiteSpace(OperatorDisplay.Text))
                         {
@@ -128,7 +166,7 @@ namespace Calculator_Project
                         break;
                 }
 
-                if (result != null)
+                if (result != null && CaughtError == false)
                 {
                     SavedNum = result;
                     SavedNumDisplay.Text = "";
@@ -153,15 +191,28 @@ namespace Calculator_Project
             {
                 Button btn = sender as Button;
 
-                if (NumDisplay.Text.Length <= 12)
+                if (!NumDisplay.Text.Contains("."))
                 {
-                    if (NumDisplay.Text.Length == 0)
+                    if (NumDisplay.Text.Length <= 12)
                     {
-                        NumDisplay.Text += "0.";
-                    } 
-                    else
-                    {
-                        NumDisplay.Text += btn.Text;
+                        if (NumDisplay.Text.Length == 0)
+                        {
+                            NumDisplay.Text += "0.";
+                        }
+                        else
+                        {
+                            NumDisplay.Text += btn.Text;
+                        }
+
+
+                        if (PreviousNum != null || CaughtError == true)
+                        {
+                            NumDisplay.Text = btn.Text.ToString();
+                            PreviousNum = null;
+                            SavedNum = null;
+                            SavedOperator = null;
+                            CaughtError = false;
+                        }
                     }
                 }
             }
