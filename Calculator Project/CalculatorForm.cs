@@ -31,6 +31,7 @@ namespace Calculator_Project
                     NumDisplay.Text = btn.Text.ToString();
                     PreviousNum = null;
                     SavedNum = null;
+                    SavedNumDisplay.Text = "";
                     SavedOperator = null;
                     CaughtError = false;
                     SetNumType = NumType.Decimal;
@@ -268,17 +269,41 @@ namespace Calculator_Project
 
         private void LOCButton_Click(object sender, EventArgs e)
         {
-            if (SetNumType == NumType.Decimal)
+            if (SetNumType == NumType.Binary)
             {
-                if (!String.IsNullOrWhiteSpace(NumDisplay.Text))
+                DECButton_Click(sender, e);
+            }
+
+            if (!String.IsNullOrWhiteSpace(NumDisplay.Text))
+            {
+                int numToCompare = (int)(double.Parse(NumDisplay.Text.ToString()));
+                SavedNumDisplay.Text = numToCompare.ToString();
+                StringBuilder locationalNum = new StringBuilder();
+                int lowestMultiple = 1;
+                int multipleAmount = 0;
+
+                while (lowestMultiple <= numToCompare)
                 {
-                    int numToCompare = (int)(double.Parse(NumDisplay.Text.ToString()));
-                    SavedNumDisplay.Text = numToCompare.ToString();
-                    StringBuilder locationalNum = new StringBuilder();
+                    if (lowestMultiple * 2 > numToCompare)
+                    {
+                        Char c = (Char)(97 + multipleAmount);
+                        locationalNum.Insert(0, c.ToString());
+                        numToCompare -= lowestMultiple;
+
+                        lowestMultiple = 1;
+                        multipleAmount = 0;
+                    }
+                    else
+                    {
+                        lowestMultiple *= 2;
+                        multipleAmount++;
+                    }
                 }
 
-                SetNumType = NumType.Locational;
+                NumDisplay.Text = locationalNum.ToString();
             }
+
+            SetNumType = NumType.Locational;
         }
     }
 
