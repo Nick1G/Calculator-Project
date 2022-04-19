@@ -26,13 +26,14 @@ namespace Calculator_Project
                     NumDisplay.Text += btn.Text;
                 }
 
-                if (PreviousNum != null || CaughtError == true)
+                if (PreviousNum != null || CaughtError == true || SetNumType == NumType.Binary || SetNumType == NumType.Locational)
                 {
                     NumDisplay.Text = btn.Text.ToString();
                     PreviousNum = null;
                     SavedNum = null;
                     SavedOperator = null;
                     CaughtError = false;
+                    SetNumType = NumType.Decimal;
                 }
             }
         }
@@ -41,7 +42,7 @@ namespace Calculator_Project
         {
             string displayNum = NumDisplay.Text.ToString();
 
-            if (sender is Button && CaughtError == false)
+            if (sender is Button && CaughtError == false && SetNumType == NumType.Decimal)
             {
                 Button btn = sender as Button;
 
@@ -79,13 +80,17 @@ namespace Calculator_Project
             }
 
             PreviousNum = null;
-            SavedNumDisplay.Text = SavedNum.ToString();
-            NumDisplay.Text = "";
+
+            if (SetNumType == NumType.Decimal)
+            {
+                SavedNumDisplay.Text = SavedNum.ToString();
+                NumDisplay.Text = "";
+            }
         }
 
         private void EqualButton_Click(object sender, EventArgs e)
         {
-            if (SavedNum != null && SavedOperator != null && !String.IsNullOrWhiteSpace(NumDisplay.Text.ToString()))
+            if (SavedNum != null && SavedOperator != null && !String.IsNullOrWhiteSpace(NumDisplay.Text.ToString()) && SetNumType == NumType.Decimal)
             {
                 double? result = 0;
 
@@ -182,7 +187,9 @@ namespace Calculator_Project
             SavedOperator = null;
             OperatorDisplay.Text = "";
             NumDisplay.Text = "";
+            SavedNumDisplay.Text = "";
             PreviousNum = null;
+            SetNumType = NumType.Decimal;
         }
 
         private void DecimalButton_Click(object sender, EventArgs e)
@@ -215,6 +222,62 @@ namespace Calculator_Project
                         }
                     }
                 }
+            }
+        }
+
+        private void BINButton_Click(object sender, EventArgs e)
+        {
+            if (SetNumType == NumType.Locational)
+            {
+                DECButton_Click(sender, e);
+            }
+
+            if (!String.IsNullOrWhiteSpace(NumDisplay.Text))
+            {
+                int numToCompare = (int)(double.Parse(NumDisplay.Text.ToString()));
+                SavedNumDisplay.Text = numToCompare.ToString();
+                StringBuilder binaryNum = new StringBuilder();
+
+                while (numToCompare != 0)
+                {
+                    binaryNum.Insert(0, (numToCompare % 2).ToString());
+                    numToCompare /= 2;
+                }
+
+                NumDisplay.Text = binaryNum.ToString();
+            }
+
+            SetNumType = NumType.Binary;
+        }
+
+        private void DECButton_Click(object sender, EventArgs e)
+        {
+            if (SetNumType != NumType.Decimal)
+            {
+                NumDisplay.Text = SavedNumDisplay.Text.ToString();
+                SavedNumDisplay.Text = SavedNum.ToString();
+
+                if (PreviousNum != null)
+                {
+                    SavedNumDisplay.Text = "";
+                }
+
+                SetNumType = NumType.Decimal;
+            }
+        }
+
+        private void LOCButton_Click(object sender, EventArgs e)
+        {
+            if (SetNumType == NumType.Decimal)
+            {
+                if (!String.IsNullOrWhiteSpace(NumDisplay.Text))
+                {
+                    int numToCompare = (int)(double.Parse(NumDisplay.Text.ToString()));
+                    SavedNumDisplay.Text = numToCompare.ToString();
+                    StringBuilder locationalNum = new StringBuilder();
+                }
+
+                SetNumType = NumType.Locational;
             }
         }
     }

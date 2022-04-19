@@ -382,7 +382,7 @@
             // DECButton
             // 
             this.DECButton.AccessibleDescription = "Button that converts a binary or locational number to a decimal";
-            this.DECButton.AccessibleName = "Decimal Button";
+            this.DECButton.AccessibleName = "Decimal Notation Button";
             this.DECButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.DECButton.Location = new System.Drawing.Point(0, 0);
             this.DECButton.Name = "DECButton";
@@ -390,11 +390,12 @@
             this.DECButton.TabIndex = 17;
             this.DECButton.Text = "DEC";
             this.DECButton.UseVisualStyleBackColor = false;
+            this.DECButton.Click += new System.EventHandler(this.DECButton_Click);
             // 
             // BINButton
             // 
             this.BINButton.AccessibleDescription = "Button that converts a decimal or locational numeral into binary";
-            this.BINButton.AccessibleName = "Binary Button";
+            this.BINButton.AccessibleName = "Binary Notation Button";
             this.BINButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.BINButton.Location = new System.Drawing.Point(66, 0);
             this.BINButton.Name = "BINButton";
@@ -402,6 +403,7 @@
             this.BINButton.TabIndex = 18;
             this.BINButton.Text = "BIN";
             this.BINButton.UseVisualStyleBackColor = false;
+            this.BINButton.Click += new System.EventHandler(this.BINButton_Click);
             // 
             // panel1
             // 
@@ -416,7 +418,7 @@
             // LOCButton
             // 
             this.LOCButton.AccessibleDescription = "Button that converts a binary or locational number to a decimal";
-            this.LOCButton.AccessibleName = "Locational Button";
+            this.LOCButton.AccessibleName = "Locational Notation Button";
             this.LOCButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.LOCButton.Location = new System.Drawing.Point(132, 0);
             this.LOCButton.Name = "LOCButton";
@@ -424,6 +426,7 @@
             this.LOCButton.TabIndex = 20;
             this.LOCButton.Text = "LOC";
             this.LOCButton.UseVisualStyleBackColor = false;
+            this.LOCButton.Click += new System.EventHandler(this.LOCButton_Click);
             // 
             // CalculatorForm
             // 
