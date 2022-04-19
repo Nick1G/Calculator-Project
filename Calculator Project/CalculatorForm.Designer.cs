@@ -50,8 +50,13 @@
             this.EqualButton = new System.Windows.Forms.Button();
             this.OperatorDisplay = new System.Windows.Forms.TextBox();
             this.SavedNumDisplay = new System.Windows.Forms.TextBox();
+            this.DECButton = new System.Windows.Forms.Button();
+            this.BINButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.LOCButton = new System.Windows.Forms.Button();
             this.NumPanel.SuspendLayout();
             this.OperatorPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // NumPanel
@@ -374,6 +379,52 @@
             this.SavedNumDisplay.TabIndex = 16;
             this.SavedNumDisplay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // DECButton
+            // 
+            this.DECButton.AccessibleDescription = "Button that converts a binary or locational number to a decimal";
+            this.DECButton.AccessibleName = "Decimal Button";
+            this.DECButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.DECButton.Location = new System.Drawing.Point(0, 0);
+            this.DECButton.Name = "DECButton";
+            this.DECButton.Size = new System.Drawing.Size(60, 30);
+            this.DECButton.TabIndex = 17;
+            this.DECButton.Text = "DEC";
+            this.DECButton.UseVisualStyleBackColor = false;
+            // 
+            // BINButton
+            // 
+            this.BINButton.AccessibleDescription = "Button that converts a decimal or locational numeral into binary";
+            this.BINButton.AccessibleName = "Binary Button";
+            this.BINButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.BINButton.Location = new System.Drawing.Point(66, 0);
+            this.BINButton.Name = "BINButton";
+            this.BINButton.Size = new System.Drawing.Size(60, 30);
+            this.BINButton.TabIndex = 18;
+            this.BINButton.Text = "BIN";
+            this.BINButton.UseVisualStyleBackColor = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.DECButton);
+            this.panel1.Controls.Add(this.LOCButton);
+            this.panel1.Controls.Add(this.BINButton);
+            this.panel1.Location = new System.Drawing.Point(12, 16);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(192, 30);
+            this.panel1.TabIndex = 19;
+            // 
+            // LOCButton
+            // 
+            this.LOCButton.AccessibleDescription = "Button that converts a binary or locational number to a decimal";
+            this.LOCButton.AccessibleName = "Locational Button";
+            this.LOCButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.LOCButton.Location = new System.Drawing.Point(132, 0);
+            this.LOCButton.Name = "LOCButton";
+            this.LOCButton.Size = new System.Drawing.Size(60, 30);
+            this.LOCButton.TabIndex = 20;
+            this.LOCButton.Text = "LOC";
+            this.LOCButton.UseVisualStyleBackColor = false;
+            // 
             // CalculatorForm
             // 
             this.AccessibleDescription = "Form that functions as a simple calculator with operators, operands, and a number" +
@@ -388,11 +439,13 @@
             this.Controls.Add(this.NumDisplay);
             this.Controls.Add(this.NumPanel);
             this.Controls.Add(this.OperatorPanel);
+            this.Controls.Add(this.panel1);
             this.Name = "CalculatorForm";
             this.RightToLeftLayout = true;
             this.Text = "Calculator";
             this.NumPanel.ResumeLayout(false);
             this.OperatorPanel.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -422,5 +475,9 @@
         private Button ClearButton;
         private TextBox SavedNumDisplay;
         private Button DecimalButton;
+        private Button DECButton;
+        private Button BINButton;
+        private Panel panel1;
+        private Button LOCButton;
     }
 }
